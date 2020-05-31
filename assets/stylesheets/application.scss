@@ -2,9 +2,22 @@ body {
   font-family: Helvetica;
 }
 
-#root {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.color-preview {
+  border: 1px solid #CCC;
+  margin: 2px;
+  vertical-align: top;
+  float: left;
+  cursor: pointer;
+  overflow: hidden;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.quantity-size{
+  width: 100%;
+}
+
+.size-input{
+  width: 50px;
 }
