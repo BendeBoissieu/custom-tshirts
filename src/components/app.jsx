@@ -7,7 +7,7 @@ class App extends Component {
     super()
     this.state = {
       colorTshirt: 'white',
-      text: 'write here',
+      text: 'Your text',
       fontsize: 12,
       showAddText: false,
       colorFont: 'red'
