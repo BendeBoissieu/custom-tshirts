@@ -6,12 +6,33 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      color: 'white'
+      colorTshirt: 'white',
+      text: 'write here',
+      fontsize: 12,
+      showAddText: false,
+      colorFont: 'red'
     }
   }
 
+  showHideAddText = () => {
+    this.setState({showAddText: !this.state.showAddText})
+  }
+
+  changeText = (e) => {
+    this.setState({text: e.target.value})
+  }
+
+  changeTextFontSize = (e) => {
+    var valueSize = parseInt(e.target.value);
+    this.setState({fontsize: valueSize})
+  }
+
+  changeFontColor = (e) => {
+    this.setState({colorFont: e.target.getAttribute('data-font-id')})
+  }
+
   changeTshirtColor = (e) => {
-    this.setState({color: e.target.getAttribute('data-id')})
+    this.setState({colorTshirt: e.target.getAttribute('data-id')})
   }
 
   quantitySize = (e) => {
@@ -23,10 +44,10 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-5">
-            <Tshirt color={this.state.color}/>
+            <Tshirt state={this.state}/>
           </div>
           <div className="col-sm-7">
-            <Custom changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize}/>
+            <Custom state={this.state} showHideAddText={this.showHideAddText} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor}/>
           </div>
         </div>
       </div>
