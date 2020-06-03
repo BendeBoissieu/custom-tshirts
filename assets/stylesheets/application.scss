@@ -2,6 +2,14 @@ body {
   font-family: Helvetica;
 }
 
+h3{
+  text-align: center;
+  background-color: #79CFC3;
+  color: white;
+  padding: 15px;
+  margin: 0;
+}
+
 .color-preview {
   border: 1px solid #CCC;
   margin: 2px;
@@ -22,7 +30,7 @@ body {
   width: 50px;
 }
 
-.addText{
+.rectangle-customize{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -41,12 +49,12 @@ body {
   font-size: 25px;
   width: 120px;
   height: 150px;
-  position: relative;
+  position: absolute;
   display: flex;
   border: 1px black dotted;
   margin: auto;
-  top: 80px;
-  left: -10px;
+  top: 60px;
+  left: 85px;
 }
 
 .text-input {

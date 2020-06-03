@@ -10,12 +10,17 @@ class App extends Component {
       text: 'Your text',
       fontsize: 12,
       showAddText: false,
-      colorFont: 'red'
+      showAddText: false,
+      colorFont: 'green'
     }
   }
 
   showHideAddText = () => {
     this.setState({showAddText: !this.state.showAddText})
+  }
+
+  showHideFindDesign = () => {
+    this.setState({showFindDesign: !this.state.showFindDesign})
   }
 
   changeText = (e) => {
@@ -27,8 +32,8 @@ class App extends Component {
     this.setState({fontsize: valueSize})
   }
 
-  changeFontColor = (e) => {
-    this.setState({colorFont: e.target.getAttribute('data-font-id')})
+  changeFontColor = (color) => {
+    this.setState({colorFont: color.hex})
   }
 
   changeTshirtColor = (e) => {
@@ -43,11 +48,11 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-5">
+          <div className="col-sm-5 col-xs-12">
             <Tshirt state={this.state}/>
           </div>
-          <div className="col-sm-7">
-            <Custom state={this.state} showHideAddText={this.showHideAddText} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor}/>
+          <div className="col-sm-7 col-xs-12">
+            <Custom state={this.state} showHideAddText={this.showHideAddText} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign}/>
           </div>
         </div>
       </div>

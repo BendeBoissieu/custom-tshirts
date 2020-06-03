@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import AddText from './addtext';
+import FindDesign from './finddesign';
 
 class Custom extends Component {
   render(){
     return(
       <div className="Custom">
         <h2>Stanley/Stella - STTW036</h2>
-        <div className="add_text" style={{display: this.props.state.showAddText ? 'block' : 'none' }}>
+        <div className="rectangle-customize" style={{display: this.props.state.showAddText ? 'block' : 'none' }}>
           <AddText state={this.props.state} changeText={this.props.changeText} showHideAddText={this.props.showHideAddText} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor}/>
         </div>
+        <div className="rectangle-customize" style={{display: this.props.state.showFindDesign ? 'block' : 'none' }}>
+          <FindDesign showHideFindDesign={this.props.showHideFindDesign}/>
+        </div>
+
+
         <p>Choose Color</p>
         <ul className="nav" onClick={this.props.changeTshirtColor}>
           <li className="color-preview" data-id= "black" style={{backgroundColor: "black" }}></li>
@@ -48,7 +54,7 @@ class Custom extends Component {
         <br/>
         <br/>
         <button>Upload Image</button>
-        <button>Find Design</button>
+        <button onClick={this.props.showHideFindDesign}>Find Design</button>
         <button onClick={this.props.showHideAddText}>Add text</button>
       </div>
     );
