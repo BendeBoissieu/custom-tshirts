@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import AddText from './addtext';
 import FindDesign from './finddesign';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpload, faIcons, faPenSquare } from "@fortawesome/free-solid-svg-icons";
 
 class Custom extends Component {
   render(){
@@ -54,9 +56,15 @@ class Custom extends Component {
         </table>
         <br/>
         <br/>
-        <button>Upload Image</button>
-        <button onClick={this.props.showHideFindDesign}>Find Design</button>
-        <button onClick={this.props.showAddTextMenu}>Add text
+        <button className="button-custom">
+          <FontAwesomeIcon icon={faUpload} className="icons-buttons"/>
+          Upload Image</button>
+        <button className="button-custom button-custom-middle" onClick={this.props.showHideFindDesign}>
+          <FontAwesomeIcon icon={faIcons} className="icons-buttons"/>
+          Find Design</button>
+        <button className="button-custom" onClick={this.props.showAddTextMenu}>
+          <FontAwesomeIcon icon={faPenSquare} className="icons-buttons"/>
+          Add text
         </button>
       </div>
     );

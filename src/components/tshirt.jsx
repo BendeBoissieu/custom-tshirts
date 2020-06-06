@@ -46,6 +46,8 @@ class Tshirt extends Component {
           <div className="bottom-menu-image" style={{display: this.props.state.showBottomMenu ? 'block' : 'none' }}>
             <FontAwesomeIcon icon={faTrash} className="icon-trash" onClick={this.props.hideText} />
           </div>
+          <Rnd style={style} id="img1" default={{ x: 85, y: 100, width: 120, height: 150}} onClick={this.showMenuImage}>
+          </Rnd>
         </div>
       </div>
     );

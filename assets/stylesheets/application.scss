@@ -7,7 +7,55 @@ h3{
   background-color: #79CFC3;
   color: white;
   padding: 15px;
-  margin: 0;
+  margin: 0 0 10px 0;
+}
+
+h2{
+  margin: 0 0 10px 0;
+}
+
+p{
+  color: #7b7b7b; //light-grey
+}
+
+.container{
+  margin-top: 20px;
+}
+
+.button-custom{
+  border: 1px solid #7b7b7b; //light-grey
+  color: #7b7b7b;
+  padding: 5px;
+  min-width: 135px;
+  width: 33%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.button-custom-middle{
+  border-right: none;
+  border-left: none;
+}
+
+.button-continue{
+  width: 100%;
+  color: white;
+  background-color: #4aa9a0;
+  padding: 5px;
+  margin: 35px 0;
+}
+
+.button-continue:hover{
+  background-color: #317b74;
+}
+
+.icons-buttons{
+  color: #4aa9a0; //light-green
+  font-size: 22px;
+  margin: 0 5px;
+}
+
+.button-custom:hover, .icons-buttons:hover{
+  color: #317b74;
 }
 
 .color-preview {
@@ -33,10 +81,15 @@ h3{
 .rectangle-customize{
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 314px; //image-title
   z-index: 1;
   background-color: white;
   border: 1px solid;
+}
+
+.container-add-text{
+  margin: 0 50px;
+
 }
 
 .box-text{
@@ -59,8 +112,9 @@ h3{
 }
 
 .text-input {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px auto;
+  width: 100%;
+  padding: 5px;
 }
 
 .bottom-menu-image {
@@ -78,3 +132,9 @@ h3{
   font-size: 20px;
   color: white;
 }
+
+.icon-text-style{
+  margin: 5px 10px;
+  font-size: 20px;
+}
+

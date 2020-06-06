@@ -32,6 +32,7 @@ class ColorFontCustom extends React.Component {
           boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
           display: 'inline-block',
           cursor: 'pointer',
+          margin: '0 10px',
         },
         popover: {
           position: 'absolute',
@@ -48,7 +49,7 @@ class ColorFontCustom extends React.Component {
     });
 
     return (
-      <div>
+      <span>
         <div style={ styles.swatch } onClick={ this.handleClick }>
           <div style={ styles.color } />
         </div>
@@ -57,7 +58,7 @@ class ColorFontCustom extends React.Component {
           <SketchPicker color={ this.state.color } onChange={ this.props.changeFontColor } />
         </div> : null }
 
-      </div>
+      </span>
     )
   }
 }

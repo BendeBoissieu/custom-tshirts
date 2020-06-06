@@ -32,6 +32,7 @@ class App extends Component {
   showAddTextMenu = () => {
     this.setState({showAddTextMenu: true})
     this.setState({showAddTextTshirt: true})
+    this.setState({showBottomMenu: true})
   }
 
   hideAddTextMenu = () => {
@@ -89,6 +90,7 @@ class App extends Component {
           </div>
           <div className="col-sm-7 col-xs-12">
             <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideAddTextMenu={this.hideAddTextMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} />
+            <button className="button-continue">Continue</button>
           </div>
         </div>
       </div>
