@@ -7,8 +7,8 @@ class Custom extends Component {
     return(
       <div className="Custom">
         <h2>Stanley/Stella - STTW036</h2>
-        <div className="rectangle-customize" style={{display: this.props.state.showAddText ? 'block' : 'none' }}>
-          <AddText state={this.props.state} changeText={this.props.changeText} showHideAddText={this.props.showHideAddText} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor}/>
+        <div className="rectangle-customize" style={{display: this.props.state.showAddTextMenu ? 'block' : 'none' }}>
+          <AddText state={this.props.state} changeText={this.props.changeText} hideAddTextMenu={this.props.hideAddTextMenu} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor}/>
         </div>
         <div className="rectangle-customize" style={{display: this.props.state.showFindDesign ? 'block' : 'none' }}>
           <FindDesign showHideFindDesign={this.props.showHideFindDesign}/>
@@ -17,6 +17,7 @@ class Custom extends Component {
 
         <p>Choose Color</p>
         <ul className="nav" onClick={this.props.changeTshirtColor}>
+          <li className="color-preview" data-id= "white" style={{backgroundColor: "white" }}></li>
           <li className="color-preview" data-id= "black" style={{backgroundColor: "black" }}></li>
           <li className="color-preview" data-id= "#616161" style={{backgroundColor: "#616161" }}></li>
           <li className="color-preview" data-id= "green" style={{backgroundColor: "green" }}></li>
@@ -55,7 +56,8 @@ class Custom extends Component {
         <br/>
         <button>Upload Image</button>
         <button onClick={this.props.showHideFindDesign}>Find Design</button>
-        <button onClick={this.props.showHideAddText}>Add text</button>
+        <button onClick={this.props.showAddTextMenu}>Add text
+        </button>
       </div>
     );
   }

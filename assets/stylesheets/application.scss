@@ -40,10 +40,11 @@ h3{
 }
 
 .box-text{
-  width: 100%;
+  width: 300px;
   height: 100%;
   position: absolute;
   top: 0;
+  border: 1px solid;
 }
 .text {
   font-size: 25px;
@@ -60,4 +61,20 @@ h3{
 .text-input {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.bottom-menu-image {
+  position: absolute;
+  width: 300px;
+  height: 40px;
+  background-color: #0000007a;
+  bottom: 0;
+}
+
+.bottom-menu-image .icon-trash {
+  position: absolute;
+  bottom: 8px;
+  right: 20px;
+  font-size: 20px;
+  color: white;
 }
