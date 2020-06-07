@@ -27,6 +27,15 @@ p{
   margin-top: 20px;
 }
 
+.tshirt{
+  text-align: center;
+  text-align: center;
+  display: flex;
+  width: 310px;
+  margin: auto;
+  border: 1px solid #7b7b7b;
+}
+
 .button-custom{
   border: 1px solid #7b7b7b; //light-grey
   color: #7b7b7b;
@@ -34,6 +43,7 @@ p{
   min-width: 135px;
   width: 33%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 15px 0px;
 }
 
 .button-custom-middle{
@@ -87,7 +97,7 @@ p{
 .rectangle-customize{
   position: absolute;
   width: 100%;
-  height: 314px; //image-title
+  min-height: 314px; //image-title
   z-index: 1;
   background-color: white;
   border: 1px solid;
@@ -98,13 +108,6 @@ p{
 
 }
 
-.box-text{
-  width: 300px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  border: 1px solid;
-}
 .text {
   font-size: 25px;
   width: 120px;
@@ -125,7 +128,7 @@ p{
 
 .bottom-menu-image {
   position: absolute;
-  width: 300px;
+  width: 308px; //tshirt -2 px for the border
   height: 40px;
   background-color: #0000007a;
   bottom: 0;
@@ -144,3 +147,6 @@ p{
   font-size: 20px;
 }
 
+.font-list, .dropdown-button{
+  background-color: white !important;
+}

@@ -3,11 +3,15 @@ import { SketchPicker } from 'react-color';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBold, faItalic, faUnderline, faAlignJustify, faAlignLeft, faAlignCenter, faAlignRight } from "@fortawesome/free-solid-svg-icons";
 import ColorFontCustom from './colorfontcustom';
+import FontPicker from "font-picker-react";
+
 
 var numbersFontSize = [];
 for (var i = 8; i <= 35; i++) {
    numbersFontSize.push(i);
 }
+
+var fontkey = config.FONT_KEY
 
 class AddText extends Component {
   render(){
@@ -23,11 +27,15 @@ class AddText extends Component {
         <h3>
           Add your text
           <span>
-            <FontAwesomeIcon icon={faTimes} style= {{float: "right"}} onClick={this.props.hideAddTextMenu} />
+            <FontAwesomeIcon icon={faTimes} style= {{float: "right"}} onClick={(e) => {this.props.hideMenu('add_text')}} />
           </span>
         </h3>
         <div className="container-add-text">
-          <textarea className="text-input" value={this.props.text} style={fontStyle} placeholder='Your text' onChange={this.props.changeText}></textarea>
+          <textarea className="text-input apply-font" value={this.props.text} style={fontStyle} placeholder='Your text' onChange={this.props.changeText}></textarea>
+          <div className="font-input">
+            Font Family
+            <FontPicker apiKey={fontkey} activeFontFamily={this.props.state.activeFontFamily}onChange={(nextFont) => {this.props.changeFontFamily}} />
+          </div>
           <div className="font-input">
             Font Size
             <select style= {{width: "70px", margin: "0 10px"}} value={this.props.state.fontsize} onChange={this.props.changeTextFontSize} >

@@ -10,9 +10,17 @@ class FindDesign extends Component {
         <h3>
           Find a design
           <span>
-            <FontAwesomeIcon icon={faTimes} style= {{float: "right"}} onClick={this.props.showHideFindDesign} />
+            <FontAwesomeIcon icon={faTimes} style= {{float: "right"}} onClick={(e) => {this.props.hideMenu('add_design')}} />
           </span>
         </h3>
+        <div className="row">
+          <div className="col-sm-3">
+            <img src=".././public/art_word/garden_trolley.svg" id="garden_trolley" alt="Garden Trolley"/>
+          </div>
+          <div className="col-sm-3">
+            <img src=".././public/art_word/happy_father.svg" id="happy_father" alt="Garden Trolley"/>
+          </div>
+        </div>
 
       </div>
     );

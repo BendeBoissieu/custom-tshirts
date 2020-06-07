@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Rnd } from "react-rnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import FontPicker from "font-picker-react";
 
 class Tshirt extends Component {
   constructor() {
@@ -16,9 +17,9 @@ class Tshirt extends Component {
   }
 
   render() {
-    var url_image = ".././public/terre-arbre.png"
+    var url_image = ".././public/art_word/happy_father.svg"
     const style = {
-      display: "flex",
+      display: this.props.state.showAddImageTshirt ? 'flex' : 'none',
       alignItems: "center",
       justifyContent: "center",
       border: "solid 1px #ddd",
@@ -27,6 +28,7 @@ class Tshirt extends Component {
       backgroundRepeat: "no-repeat"
     };
     const styleText = {
+      activeFontFamily: this.props.state.activeFontFamily,
       display: this.props.state.showAddTextTshirt ? 'flex' : 'none',
       alignItems: "center",
       justifyContent: "center",
@@ -41,17 +43,15 @@ class Tshirt extends Component {
       textAlign: this.props.state.textAlign
     };
     return (
-      <div className="tshirt">
-        <img style={{backgroundColor: this.props.state.colorTshirt, width: 300}} src="../public/shirt2.png" alt="tshirt" />
-        <div className="box-text">
-          <Rnd style={styleText} id="text1" default={{ x: 20, y: 40, width: 100, height: 100}} onClick={this.props.showMenuImageBottom} >
-            {this.props.state.text}
-          </Rnd>
-          <div className="bottom-menu-image" style={{display: this.props.state.showBottomMenu ? 'block' : 'none' }}>
-            <FontAwesomeIcon icon={faTrash} className="icon-trash" onClick={this.props.hideText} />
-          </div>
-          <Rnd style={style} id="img1" default={{ x: 85, y: 100, width: 120, height: 150}} onClick={this.showMenuImage}>
-          </Rnd>
+      <div className="tshirt apply-font">
+        <img style={{backgroundColor: this.props.state.colorTshirt, width: 300, margin: 'auto'}} src="../public/shirt2.png" alt="tshirt" />
+        <Rnd style={styleText} id="text1" default={{ x: 25, y: 40, width: 100, height: 100}} onClick={this.props.showMenuImageBottom} >
+          {this.props.state.text}
+        </Rnd>
+        <Rnd style={style} id="img1" default={{ x: 20, y: 40, width: 120, height: 150}} onClick={this.showMenuImage}>
+        </Rnd>
+        <div className="bottom-menu-image" style={{display: this.props.state.showBottomMenu ? 'block' : 'none' }}>
+          <FontAwesomeIcon icon={faTrash} className="icon-trash" onClick={(e) => {this.props.hideComponent()}} />
         </div>
       </div>
     );

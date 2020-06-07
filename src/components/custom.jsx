@@ -10,10 +10,10 @@ class Custom extends Component {
       <div className="Custom">
         <h2>Stanley/Stella - STTW036</h2>
         <div className="rectangle-customize" style={{display: this.props.state.showAddTextMenu ? 'block' : 'none' }}>
-          <AddText state={this.props.state} changeText={this.props.changeText} hideAddTextMenu={this.props.hideAddTextMenu} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor} changeFontStyle={this.props.changeFontStyle}/>
+          <AddText state={this.props.state} changeText={this.props.changeText} hideMenu={this.props.hideMenu} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor} changeFontStyle={this.props.changeFontStyle} changeFontFamily={this.props.changeFontFamily}/>
         </div>
-        <div className="rectangle-customize" style={{display: this.props.state.showFindDesign ? 'block' : 'none' }}>
-          <FindDesign showHideFindDesign={this.props.showHideFindDesign}/>
+        <div className="rectangle-customize" style={{display: this.props.state.showAddDesign ? 'block' : 'none' }}>
+          <FindDesign hideMenu={this.props.hideMenu}/>
         </div>
 
 
@@ -59,7 +59,7 @@ class Custom extends Component {
         <button className="button-custom">
           <FontAwesomeIcon icon={faUpload} className="icons-buttons"/>
           Upload Image</button>
-        <button className="button-custom button-custom-middle" onClick={this.props.showHideFindDesign}>
+        <button className="button-custom button-custom-middle" onClick={this.props.showFindDesign}>
           <FontAwesomeIcon icon={faIcons} className="icons-buttons"/>
           Find Design</button>
         <button className="button-custom" onClick={this.props.showAddTextMenu}>
