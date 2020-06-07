@@ -6,14 +6,18 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      colorTshirt: 'white',
+      colorTshirt: 'green',
       text: 'Your text',
       fontsize: 12,
       showAddTextMenu: false,
       showAddTextTshirt: false,
       colorFont: '#22194D',
       idText: 0,
-      showBottomMenu: false
+      showBottomMenu: false,
+      fontStyle: 'normal',
+      fontWeight: 'normal',
+      textDecoration: 'none',
+      textAlign: 'left'
     }
   }
 
@@ -61,7 +65,8 @@ class App extends Component {
   }
 
   changeText = (e) => {
-    this.setState({text: e.target.value})
+    var newtext = e.target.value.split(" ").join("\u00A0");
+    this.setState({text: newtext})
   }
 
   changeTextFontSize = (e) => {
@@ -71,6 +76,40 @@ class App extends Component {
 
   changeFontColor = (color) => {
     this.setState({colorFont: color.hex})
+  }
+
+  changeFontStyle = (e) => {
+    switch (e) {
+      case 'italic':
+        if(this.state.fontStyle == e){
+          this.setState({fontStyle: 'normal'})
+        } else
+        {
+          this.setState({fontStyle: e})
+        }
+      case 'bold':
+        if(this.state.fontWeight == e){
+          this.setState({fontWeight: 'normal'})
+        } else
+        {
+          this.setState({fontWeight: e})
+        }
+      case 'underline':
+        if(this.state.textDecoration == e){
+          this.setState({textDecoration: 'none'})
+        } else
+        {
+          this.setState({textDecoration: e})
+        }
+      case 'justify':
+        this.setState({textAlign: e})
+      case 'left':
+        this.setState({textAlign: e})
+      case 'center':
+        this.setState({textAlign: e})
+      case 'right':
+        this.setState({textAlign: e})
+    }
   }
 
   changeTshirtColor = (e) => {
@@ -89,7 +128,7 @@ class App extends Component {
             <Tshirt state={this.state} showMenuImageBottom={this.showMenuImageBottom} hideText={this.hideText}/>
           </div>
           <div className="col-sm-7 col-xs-12">
-            <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideAddTextMenu={this.hideAddTextMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} />
+            <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideAddTextMenu={this.hideAddTextMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} changeFontStyle={this.changeFontStyle} />
             <button className="button-continue">Continue</button>
           </div>
         </div>

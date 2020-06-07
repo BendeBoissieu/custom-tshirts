@@ -34,7 +34,11 @@ class Tshirt extends Component {
       backgroundSize: "contain",
       backgroundRepeat: "no-repeat",
       fontSize: this.props.state.fontsize,
-      color: this.props.state.colorFont
+      color: this.props.state.colorFont,
+      fontStyle: this.props.state.fontStyle,
+      fontWeight: this.props.state.fontWeight,
+      textDecoration: this.props.state.textDecoration,
+      textAlign: this.props.state.textAlign
     };
     return (
       <div className="tshirt">

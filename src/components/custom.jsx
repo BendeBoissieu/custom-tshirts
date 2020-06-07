@@ -10,7 +10,7 @@ class Custom extends Component {
       <div className="Custom">
         <h2>Stanley/Stella - STTW036</h2>
         <div className="rectangle-customize" style={{display: this.props.state.showAddTextMenu ? 'block' : 'none' }}>
-          <AddText state={this.props.state} changeText={this.props.changeText} hideAddTextMenu={this.props.hideAddTextMenu} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor}/>
+          <AddText state={this.props.state} changeText={this.props.changeText} hideAddTextMenu={this.props.hideAddTextMenu} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor} changeFontStyle={this.props.changeFontStyle}/>
         </div>
         <div className="rectangle-customize" style={{display: this.props.state.showFindDesign ? 'block' : 'none' }}>
           <FindDesign showHideFindDesign={this.props.showHideFindDesign}/>
@@ -44,13 +44,13 @@ class Custom extends Component {
               <th>3XL</th>
             </tr>
             <tr>
-              <td><input className="size-input" name="XS" type="number" placeholder='3456'></input></td>
-              <td><input className="size-input" name="S" type="number" placeholder='234'></input></td>
-              <td><input className="size-input" name="M" type="number" placeholder='342'></input></td>
-              <td><input className="size-input" name="L" type="number" placeholder='1245'></input></td>
-              <td><input className="size-input" name="XL" type="number" placeholder='345'></input></td>
-              <td><input className="size-input" name="XXL" type="number" placeholder='356'></input></td>
-              <td><input className="size-input" name="2XL" type="number" placeholder='46'></input></td>
+              <td><input className="size-input" name="XS" type="number" min='0'></input></td>
+              <td><input className="size-input" name="S" type="number" min='0'></input></td>
+              <td><input className="size-input" name="M" type="number" min='0'></input></td>
+              <td><input className="size-input" name="L" type="number" min='0'></input></td>
+              <td><input className="size-input" name="XL" type="number" min='0'></input></td>
+              <td><input className="size-input" name="XXL" type="number" min='0'></input></td>
+              <td><input className="size-input" name="2XL" type="number" min='0'></input></td>
             </tr>
           </tbody>
         </table>
