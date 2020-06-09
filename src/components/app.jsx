@@ -3,7 +3,6 @@ import Tshirt from './tshirt';
 import Custom from './custom';
 import { ColorExtractor } from 'react-color-extractor'
 
-
 class App extends Component {
   constructor() {
     super()
@@ -24,7 +23,8 @@ class App extends Component {
       showAddDesign: false,
       showAddImageTshirt: false,
       typeComponent: null,
-      colors: []
+      colors: [],
+      selectedImg: null
     }
   }
 
@@ -64,17 +64,28 @@ class App extends Component {
     this.setState({showBottomMenu: false})
   }
 
-  showMenuImageBottom = () => {
+  showMenuImageBottom = (e) => {
+    if (e.target.id == "image_design"){
+      this.setState({showAddDesign: true})
+      this.setState({showAddTextMenu: false})
+    } else if (e.target.id == "image_text") {
+      this.setState({showAddTextMenu: true})
+      this.setState({showAddDesign: false})
+    }
     this.setState({showBottomMenu: true})
-    this.setState({showAddTextMenu: true})
+    this.setState({typeComponent: e.target.id})
+
   }
 
   hideComponent = () => {
-    this.setState({showAddTextTshirt: false})
-    this.setState({showAddImageTshirt: false})
+    if (this.state.typeComponent == "image_design"){
+      this.setState({showAddImageTshirt: false})
+      this.setState({showAddDesign: false})
+    } else if(this.state.typeComponent == "image_text") {
+      this.setState({showAddTextTshirt: false})
+      this.setState({showAddTextMenu: false})
+    }
     this.setState({showBottomMenu: false})
-    this.setState({showAddTextMenu: false})
-    this.setState({showAddDesign: false})
   }
 
   //showHideAddText = () => {
@@ -142,6 +153,12 @@ class App extends Component {
     //console.log(e.target);
   }
 
+  displayResult = () => {
+    this.setState({showAddDesign: false})
+    this.setState({showAddTextMenu: false})
+    this.setState({showBottomMenu: false})
+  }
+
   renderSwatches = () => {
     const { colors } = this.state
 
@@ -159,21 +176,27 @@ class App extends Component {
     })
   }
 
-  getColors = colors =>
-    this.setState(state => ({ colors: [...state.colors, ...colors] }))
+  getColors = (colors) => {
+
+    this.setState(state => ({ colors: [state.colors, ...colors] }))
+  }
+
+  selectImg = (name) => {
+    this.setState({selectedImg: name})
+  }
 
   render() {
     return (
       <div className="container">
         <div className="row">
           <div className="col-sm-6 col-xs-12">
-            <Tshirt state={this.state} showMenuImageBottom={this.showMenuImageBottom} hideComponent={this.hideComponent}/>
+            <Tshirt state={this.state} showMenuImageBottom={this.showMenuImageBottom} hideComponent={this.hideComponent} displayResult={this.displayResult} />
           </div>
           <div className="col-sm-6 col-xs-12">
-            <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideMenu={this.hideMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} changeFontStyle={this.changeFontStyle} changeFontFamily={this.changeFontFamily} showFindDesign={this.showFindDesign}/>
+            <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideMenu={this.hideMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} changeFontStyle={this.changeFontStyle} changeFontFamily={this.changeFontFamily} showFindDesign={this.showFindDesign} selectImg={this.selectImg} />
           <div>
             <ColorExtractor getColors={this.getColors}>
-              <img src=".././public/art_word/happy_father.svg" style={{ display: 'none' }} />
+              <img src={`.././public/art_word/${this.state.selectedImg}.svg`} style={{ display: 'none' }} />
             </ColorExtractor>
             <h4>Number of colors:</h4>
             <div style={{marginTop: 20, display: 'flex', justifyContent: 'center'}}>

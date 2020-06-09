@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import { SketchPicker } from 'react-color';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import ImgDesign from './img_design';
+
+const image_designs = ["garden_trolley", "happy_father", "black_white_rainbow"];
 
 class FindDesign extends Component {
+  renderList = () => {
+    return image_designs.map(img =>
+        <ImgDesign name={img} key={img} selectImg={this.props.selectImg}/>
+    )
+  }
   render(){
     return(
       <div className="addText">
@@ -14,12 +22,7 @@ class FindDesign extends Component {
           </span>
         </h3>
         <div className="row">
-          <div className="col-sm-3">
-            <img src=".././public/art_word/garden_trolley.svg" id="garden_trolley" alt="Garden Trolley"/>
-          </div>
-          <div className="col-sm-3">
-            <img src=".././public/art_word/happy_father.svg" id="happy_father" alt="Garden Trolley"/>
-          </div>
+          {this.renderList()}
         </div>
 
       </div>

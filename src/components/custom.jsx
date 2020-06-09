@@ -13,7 +13,7 @@ class Custom extends Component {
           <AddText state={this.props.state} changeText={this.props.changeText} hideMenu={this.props.hideMenu} changeTextFontSize={this.props.changeTextFontSize} changeFontColor={this.props.changeFontColor} changeFontStyle={this.props.changeFontStyle} changeFontFamily={this.props.changeFontFamily}/>
         </div>
         <div className="rectangle-customize" style={{display: this.props.state.showAddDesign ? 'block' : 'none' }}>
-          <FindDesign hideMenu={this.props.hideMenu}/>
+          <FindDesign hideMenu={this.props.hideMenu} selectImg={this.props.selectImg} />
         </div>
 
 
