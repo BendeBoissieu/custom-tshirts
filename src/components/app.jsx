@@ -19,12 +19,16 @@ class App extends Component {
       fontStyle: 'normal',
       fontWeight: 'normal',
       textDecoration: 'none',
-      textAlign: 'left',
+      textAlign: 'center',
       showAddDesign: false,
       showAddImageTshirt: false,
+      showAddImageUpload: false,
       typeComponent: null,
       colors: [],
-      selectedImg: null
+      selectedImg: null,
+      showImageUpload: false,
+      file: '',
+      imagePreviewUrl: ''
     }
   }
 
@@ -60,6 +64,8 @@ class App extends Component {
         this.setState({showAddTextMenu: false})
       case 'add_design':
         this.setState({showAddDesign: false})
+      case 'add_upload':
+        this.setState({showAddImageUpload: false})
     }
     this.setState({showBottomMenu: false})
   }
@@ -71,6 +77,8 @@ class App extends Component {
     } else if (e.target.id == "image_text") {
       this.setState({showAddTextMenu: true})
       this.setState({showAddDesign: false})
+    } else if (e.target.id == "image_upload") {
+      this.setState({showAddImageUpload: true})
     }
     this.setState({showBottomMenu: true})
     this.setState({typeComponent: e.target.id})
@@ -84,14 +92,12 @@ class App extends Component {
     } else if(this.state.typeComponent == "image_text") {
       this.setState({showAddTextTshirt: false})
       this.setState({showAddTextMenu: false})
+    } else if(this.state.typeComponent == "image_upload") {
+      this.setState({showImageUpload: false})
+      this.setState({showAddImageUpload: false})
     }
     this.setState({showBottomMenu: false})
   }
-
-  //showHideAddText = () => {
-  //  console.log(id);
-  //  this.setState({showAddText: !this.state.showAddText})
-  //}
 
   changeText = (e) => {
     var newtext = e.target.value.split(" ").join("\u00A0");
@@ -157,6 +163,7 @@ class App extends Component {
     this.setState({showAddDesign: false})
     this.setState({showAddTextMenu: false})
     this.setState({showBottomMenu: false})
+    this.setState({showAddImageUpload: false})
   }
 
   renderSwatches = () => {
@@ -168,8 +175,8 @@ class App extends Component {
           key={id}
           style={{
             backgroundColor: color,
-            width: 30,
-            height: 30
+            width: 20,
+            height: 20
           }}
         />
       )
@@ -185,6 +192,28 @@ class App extends Component {
     this.setState({selectedImg: name})
   }
 
+  showUploadImage = () => {
+    this.setState({showImageUpload: true})
+    this.setState({showAddImageUpload: true})
+    this.setState({showBottomMenu: true})
+    this.setState({typeComponent: 'image_uploaded'})
+  }
+
+  _handleImageChange = (e) => {
+    e.preventDefault();
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+    reader.readAsDataURL(file)
+  }
+
   render() {
     return (
       <div className="container">
@@ -193,10 +222,13 @@ class App extends Component {
             <Tshirt state={this.state} showMenuImageBottom={this.showMenuImageBottom} hideComponent={this.hideComponent} displayResult={this.displayResult} />
           </div>
           <div className="col-sm-6 col-xs-12">
-            <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideMenu={this.hideMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} changeFontStyle={this.changeFontStyle} changeFontFamily={this.changeFontFamily} showFindDesign={this.showFindDesign} selectImg={this.selectImg} />
+            <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideMenu={this.hideMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} changeFontStyle={this.changeFontStyle} changeFontFamily={this.changeFontFamily} showFindDesign={this.showFindDesign} selectImg={this.selectImg} showUploadImage={this.showUploadImage} _handleImageChange={this._handleImageChange}/>
           <div>
             <ColorExtractor getColors={this.getColors}>
               <img src={`.././public/art_word/${this.state.selectedImg}.svg`} style={{ display: 'none' }} />
+            </ColorExtractor>
+            <ColorExtractor getColors={this.getColors}>
+              <img src={this.state.imagePreviewUrl} style={{ display: 'none' }} />
             </ColorExtractor>
             <h4>Number of colors:</h4>
             <div style={{marginTop: 20, display: 'flex', justifyContent: 'center'}}>

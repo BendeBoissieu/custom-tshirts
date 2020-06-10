@@ -17,13 +17,24 @@ class Tshirt extends Component {
   }
 
   render() {
-    var url_image = `.././public/art_word/${this.props.state.selectedImg}.svg`;
-    const style = {
+    var url_image_upload = this.props.state.imagePreviewUrl
+    const styleImageUploaded = {
+      display: this.props.state.showImageUpload ? 'flex' : 'none',
+      alignItems: "center",
+      justifyContent: "center",
+      border: (this.props.state.showAddImageUpload && this.props.state.imagePreviewUrl) ? "solid 1px #ddd" : 'none',
+      backgroundImage: this.props.state.imagePreviewUrl? `url(${url_image_upload})`: 'none',
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat"
+    };
+
+    var url_image_design = `.././public/art_word/${this.props.state.selectedImg}.svg`;
+    const styleImageDesign = {
       display: this.props.state.showAddImageTshirt ? 'flex' : 'none',
       alignItems: "center",
       justifyContent: "center",
       border: (this.props.state.showAddDesign && this.props.state.selectedImg) ? "solid 1px #ddd" : 'none',
-      backgroundImage: this.props.state.selectedImg? `url(${url_image})`: 'none',
+      backgroundImage: this.props.state.selectedImg? `url(${url_image_design})`: 'none',
       backgroundSize: "contain",
       backgroundRepeat: "no-repeat"
     };
@@ -48,7 +59,9 @@ class Tshirt extends Component {
         <Rnd style={styleText} id="image_text" default={{ x: 25, y: 40, width: 100, height: 100}} onClick={this.props.showMenuImageBottom} >
           {this.props.state.text}
         </Rnd>
-        <Rnd style={style} id="image_design" default={{ x: 20, y: 40, width: 120, height: 150}} onClick={this.props.showMenuImageBottom}>
+        <Rnd style={styleImageDesign} id="image_design" default={{ x: 20, y: 40, width: 120, height: 150}} onClick={this.props.showMenuImageBottom}>
+        </Rnd>
+        <Rnd style={styleImageUploaded} id="image_upload" default={{ x: 20, y: 40, width: 120, height: 150}} onClick={this.props.showMenuImageBottom}>
         </Rnd>
         <div className="bottom-menu-image" style={{display: this.props.state.showBottomMenu ? 'block' : 'none' }}>
           <FontAwesomeIcon icon={faTrash} className="icon-trash" onClick={this.props.hideComponent} />

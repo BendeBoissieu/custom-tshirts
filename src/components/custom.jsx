@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddText from './addtext';
 import FindDesign from './finddesign';
+import ImageUpload from './image_upload';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faIcons, faPenSquare } from "@fortawesome/free-solid-svg-icons";
 
@@ -14,6 +15,9 @@ class Custom extends Component {
         </div>
         <div className="rectangle-customize" style={{display: this.props.state.showAddDesign ? 'block' : 'none' }}>
           <FindDesign hideMenu={this.props.hideMenu} selectImg={this.props.selectImg} />
+        </div>
+        <div className="rectangle-customize" style={{display: this.props.state.showAddImageUpload ? 'block' : 'none' }}>
+          <ImageUpload state={this.state} hideMenu={this.props.hideMenu} _handleImageChange={this.props._handleImageChange} />
         </div>
 
 
@@ -56,8 +60,8 @@ class Custom extends Component {
         </table>
         <br/>
         <br/>
-        <button className="button-custom">
-          <FontAwesomeIcon icon={faUpload} className="icons-buttons"/>
+        <button className="button-custom" onClick={this.props.showUploadImage}>
+          <FontAwesomeIcon icon={faUpload} className="icons-buttons" />
           Upload Image</button>
         <button className="button-custom button-custom-middle" onClick={this.props.showFindDesign}>
           <FontAwesomeIcon icon={faIcons} className="icons-buttons"/>

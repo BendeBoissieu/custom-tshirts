@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import ImgDesign from './img_design';
 
-const image_designs = ["garden_trolley", "happy_father", "black_white_rainbow"];
+const image_designs = ["garden_trolley", "happy_father", "black_white_rainbow", "guitar_player"];
 
 class FindDesign extends Component {
   renderList = () => {
