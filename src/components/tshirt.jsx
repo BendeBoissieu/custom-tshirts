@@ -3,6 +3,7 @@ import { Rnd } from "react-rnd";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import FontPicker from "font-picker-react";
+import Moveable from "react-moveable";
 
 class Tshirt extends Component {
   constructor() {
@@ -72,3 +73,4 @@ class Tshirt extends Component {
 }
 
 export default Tshirt;
+
