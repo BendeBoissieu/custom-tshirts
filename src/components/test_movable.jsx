@@ -12,7 +12,7 @@ class Test extends React.Component {
       rotate: "0deg",
       scaleX: 1,
       scaleY: 1,
-      matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      matrix3d: [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
     }
   });
   state = {
@@ -25,7 +25,7 @@ class Test extends React.Component {
   render() {
     const { scalable, warpable, resizable, target } = this.state;
     return (
-      <div className="tshirt apply-font">
+      <div className="tshirt-display apply-font">
         <Moveable
           ref={ref(this, "moveable")}
           target={target}
@@ -55,8 +55,9 @@ class Test extends React.Component {
           onRotateEnd={this.onEnd}
           onPinchEnd={this.onEnd}
         />
-        <img style={{backgroundColor: this.props.state.colorTshirt, width: 300, margin: 'auto'}} src="../public/shirt2.png" alt="tshirt"  onClick={this.props.displayResult}/>
-        <img src=".././public/art_word/happy_father.svg" className="moveable" alt="" height="150px" width="150px"/>
+        <div className="tshirt-display" style={{backgroundColor: this.props.state.colorTshirt}} onClick={this.props.displayResult}>
+          <img src=".././public/art_word/happy_father.svg" className="moveable" alt="" height="150px" width="150px"/>
+        </div>
         <div className="label" ref={ref(this, "label")} />
 
       </div>
@@ -80,8 +81,7 @@ class Test extends React.Component {
   }
   setLabel(clientX, clientY, text) {
     this.label.style.cssText = `
-display: block; transform: translate(${clientX}px, ${clientY -
-      10}px) translate(-100%, -100%) translateZ(-100px);`;
+display: block; transform: translate(${clientX}px, ${clientY}px) translate(0, 0) translateZ(-100px);`;
     this.label.innerHTML = text;
   }
   onPinch = ({ clientX, clientY }) => {

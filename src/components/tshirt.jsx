@@ -55,7 +55,7 @@ class Tshirt extends Component {
       textAlign: this.props.state.textAlign
     };
     return (
-      <div className="tshirt apply-font">
+      <div className="tshirt-display apply-font">
         <img style={{backgroundColor: this.props.state.colorTshirt, width: 300, margin: 'auto'}} src="../public/shirt2.png" alt="tshirt"  onClick={this.props.displayResult}/>
         <Rnd style={styleText} id="image_text" default={{ x: 25, y: 40, width: 100, height: 100}} onClick={this.props.showMenuImageBottom} >
           {this.props.state.text}

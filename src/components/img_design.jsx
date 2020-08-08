@@ -14,7 +14,7 @@ class ImgDesign extends Component {
     if (!this.props.name) {
       return null;
     }
-    const src = `.././public/art_word/${this.props.name}.svg`;
+    const src = `/.././public/art_word/${this.props.name}.svg`;
     return(
       <div className="col-sm-3">
         <img src={src} dataimage={this.props.name} onClick={this.handleClick} alt={this.props.name} width="100px"/>

@@ -225,8 +225,8 @@ a {
   font-weight: 100;
   letter-spacing: 1px;
   background-color: yellow;
-  top: 50px;
-  left: 130px;
+  top: 60px;
+  left: 110px;
 }
 
 .moveable span {
@@ -235,6 +235,14 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
+}
+
+.moveable-control-box{
+  position: absolute !important;
+  top: 60px !important;
+  left: 110px !important;
+  height: 150px;
+  //transform: translate(0px, 0px) !important;
 }
 
 .description {
@@ -403,7 +411,6 @@ code.hljs {
   margin: 0;
   cursor: pointer;
   outline: none;
-  background-color: green;
 }
 
 .tab.selected {
@@ -436,3 +443,9 @@ code.hljs {
   content: "/";
 }
 
+.tshirt-display{
+  background-image: url("/public/shirt3.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height:350px;
+}
