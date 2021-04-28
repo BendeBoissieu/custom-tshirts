@@ -32,14 +32,11 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.10",
     "font-picker-react": "^3.5.2",
-    "moveable": "^0.17.10",
     "react": "16.2",
     "react-color": "^2.18.1",
     "react-color-extractor": "^1.1.2",
     "react-dom": "16.2",
-    "react-frame": "^2.2.22",
-    "react-rnd": "^10.1.10",
-    "scenejs": "^1.1.7"
+    "react-rnd": "^10.1.10"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development",
