@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Tshirt from './tshirt';
 import Custom from './custom';
-import { ColorExtractor } from 'react-color-extractor'
+import { ColorExtractor } from 'react-color-extractor';
+import Test from './test_movable';
 
 class App extends Component {
   constructor() {
@@ -219,7 +220,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col-sm-6 col-xs-12">
-            <Tshirt state={this.state} showMenuImageBottom={this.showMenuImageBottom} hideComponent={this.hideComponent} displayResult={this.displayResult} />
+            <Test state={this.state} />
           </div>
           <div className="col-sm-6 col-xs-12">
             <Custom state={this.state} showAddTextMenu={this.showAddTextMenu} hideMenu={this.hideMenu} changeTshirtColor={this.changeTshirtColor} quantitySize={this.quantitySize} changeText={this.changeText} changeTextFontSize={this.changeTextFontSize} changeFontColor={this.changeFontColor} showHideFindDesign={this.showHideFindDesign} createIdText={this.createIdText} changeFontStyle={this.changeFontStyle} changeFontFamily={this.changeFontFamily} showFindDesign={this.showFindDesign} selectImg={this.selectImg} showUploadImage={this.showUploadImage} _handleImageChange={this._handleImageChange}/>
@@ -235,7 +236,6 @@ class App extends Component {
               {this.renderSwatches()}
             </div>
           </div>
-
             <button className="button-continue">Continue</button>
           </div>
         </div>
